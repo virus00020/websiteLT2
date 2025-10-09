@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💰 LT2 Value Sheets</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Light mode */
+    body.light-mode {
+      background: #f5f5f5;
+      color: #222;
+    }
+    body.light-mode .navbar {
+      background: #e0e0e0;
+      border-bottom: 1px solid #ccc;
+    }
+    body.light-mode .navbar button {
+      color: #222;
+    }
+    body.light-mode .navbar button:hover,
+    body.light-mode .navbar button.active {
+      background: #ddd;
+    }
+    body.light-mode .tabs button {
+      background: #fff;
+      color: #222;
+      border: 1px solid #ccc;
+    }
+    body.light-mode .tabs button:hover {
+      background: #eee;
+    }
+
+    .navbar {
+      background: #1a1a1a;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar button {
+      background: none;
+      border: none;
+      color: #f0f0f0;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .navbar button:hover,
+    .navbar button.active {
+      background: #333;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .tabs button {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      border: 1px solid #333;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .tabs button:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    /* Discord button */
+    .discord-btn {
+      background: #5865f2;
+      color: white !important;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .discord-btn:hover {
+      background: #4752c4;
+    }
+
+    .navbar-right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body
+  <header class="navbar">
+    <div class="navbar-left">
+      <a href="home.html"><button>Home</button></a>
+      <a href="index.html"><button>Dashboard</button></a>
+      <a href="about.html"><button>About</button></a>
+      <a href="status.html"><button>Status</button></a>
+      <a href="misc.html"><button class="active">Misc</button></a>
+    </div>
+    <div class="navbar-right">
+      <a href="https://discord.gg/YOUR_INVITE" target="_blank">
+        <button class="discord-btn">Join Discord</button>
+      </a>
+      <button id="theme-toggle">☀️</button>
+    </div>
+  </header>
+  <main class="container">
+    <h1>💰 LT2 Value Sheets</h1>
+    <p class="subtitle">Choose a category to view real-time prices.</p>
+    <div class="tabs">
+      <a href="wood.html"><button>🌲 Wood</button></a>
+      <a href="axe.html"><button>🪓 Axe</button></a>
+      <a href="gifts.html"><button>🎁 Gift</button></a>
+      <a href=""><button></button></a>
+      <a href="services.html"><button>🛠 Services</button></a>
+      <a href=""><button>📦 Items</button></a>
+      <a href=""><button>🌍 Land</button></a>
+      <a href="vehicles.html"><button>🚗 Vehicles</button></a>
+      <a href="tools.html"><button>🔧 Tools</button></a>
+      <a href="misc.html"><button>✨ Misc</button></a>
+    </div>
+  </main>
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      toggleBtn.textContent = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
+    });
+  </script>
+</body>
+</html>

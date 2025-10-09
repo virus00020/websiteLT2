@@ -1,0 +1,140 @@
+{
+  "developers": [
+    {
+      "name": "Neptune",
+      "role": "founder",
+      "bio": "🪐",
+      "avatar": "/images/neptune.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": "https://discord.gg/5QK5mCvu"
+      }
+    },
+    {
+      "name": "Virus",
+      "role": "lead dev",
+      "bio": "Nope. He's just not confident enough. He's gonna have to MAN UP if he wants to put on a skirt and thigh high socks to work here! Nyan~",
+      "avatar": "/images/virus.webp",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": "https://justfuckingusehtml.com"
+      }
+      },
+    {
+      "name": "fated",
+      "role": "dev",
+      "bio": "i will eat apple pie",
+      "avatar": "/images/fat3d.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": "https://tinyurl.com/sirfated0"
+      }
+         }
+  ],
+  "contributors": [
+    {
+      "name": "harryj38",
+      "role": "chief of staff",
+      "bio": "Imagine if ninja got a low taper fade",
+      "avatar": "/images/harryj38.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+    {
+      "name": "lakeylaake",
+      "role": "manager",
+      "bio": "illari > every other ow supp",
+      "avatar": "/images/lakeylaake.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "yaykob2",
+      "role": "assistant manager",
+      "bio": "yay",
+      "avatar": "/images/yaykob2.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "ayla",
+      "role": "assistant manager",
+      "bio": "hi",
+      "avatar": "/images/ayla.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "ella",
+      "role": "PC rep",
+      "bio": "mafioso and chance is my fine shyt",
+      "avatar": "/images/ella.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "pargeener",
+      "role": "staff",
+      "bio": "E Pluribus Unum",
+      "avatar": "/images/pargeener.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "jackson27",
+      "role": "PC member",
+      "bio": "",
+      "avatar": "/images/jackson27.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "blue_lumbernoob",
+      "role": "PC member",
+      "bio": "",
+      "avatar": "/images/blue_lumbernoob.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    },
+        {
+      "name": "number_devil",
+      "role": "PC member",
+      "bio": "",
+      "avatar": "/images/number_devil.png",
+      "links": {
+        "github": "",
+        "email": "",
+        "website": ""
+      }
+    }
+    
+    
+  ]
+}

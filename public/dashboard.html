@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📊 Employee Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 28px;
+    }
+
+    .container {
+      margin: 30px auto;
+      max-width: 700px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #f1c40f;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #5865f2;
+      outline: none;
+    }
+
+    button {
+      background: #5865f2;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #4752c4;
+    }
+
+    .news-item {
+      background: #222;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .news-item strong {
+      color: #f1c40f;
+    }
+
+    .delete-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .delete-btn:hover {
+      background: darkred;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      background: #333;
+    }
+    .logout-btn:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Employee Dashboard</h1>
+  <p id="welcome"></p>
+
+  <div class="container">
+    <!-- Post News -->
+    <div class="card">
+      <h2>📰 Post News</h2>
+      <input type="text" id="newsTitle" placeholder="News Title">
+      <textarea id="newsContent" rows="3" placeholder="News content..."></textarea>
+      <button onclick="postNews()">Post</button>
+    </div>
+
+    <!-- Posted News -->
+    <div class="card">
+      <h2>🗂️ Posted News</h2>
+      <div id="newsList"></div>
+    </div>
+
+    <!-- Logout -->
+    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+  </div>
+
+  <script>
+    // Redirect if not logged in
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    if (!loggedInUser) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcome").textContent = "Welcome, " + loggedInUser.name;
+    }
+
+    // Load news from localStorage
+    let news = JSON.parse(localStorage.getItem("news")) || [];
+
+    function renderNews() {
+      const newsList = document.getElementById("newsList");
+      newsList.innerHTML = "";
+      news.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("news-item");
+        div.innerHTML = `<div><strong>${item.title}</strong>: ${item.content}</div>
+                         <button class="delete-btn" onclick="deleteNews(${index})">Delete</button>`;
+        newsList.appendChild(div);
+      });
+    }
+
+ function postNews() {
+  const title = document.getElementById("newsTitle").value.trim();
+  const content = document.getElementById("newsContent").value.trim();
+
+  if (title && content) {
+    const date = new Date().toLocaleString(); // readable date/time
+    news.push({
+      title,
+      content,
+      author: loggedInUser.name, // employee name from login
+      date
+    });
+    localStorage.setItem("news", JSON.stringify(news));
+    renderNews();
+    document.getElementById("newsTitle").value = "";
+    document.getElementById("newsContent").value = "";
+  }
+}
+
+    function deleteNews(index) {
+      news.splice(index, 1);
+      localStorage.setItem("news", JSON.stringify(news));
+      renderNews();
+    }
+
+    function logout() {
+      sessionStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+
+    renderNews();
+  </script>
+</body>
+</html>

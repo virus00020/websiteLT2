@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔐 Employee Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #f1c40f;
+    }
+
+    .login-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .login-box input:focus {
+      border-color: #5865f2;
+    }
+
+    .login-box button {
+      width: 95%;
+      padding: 10px;
+      background: #5865f2;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #4752c4;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>🔐 Employee Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    const employees = [
+      { username: "admin", password: "1234", name: "Admin User" },
+      { username: "john", password: "5678", name: "John Doe" }
+    ];
+
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorBox = document.getElementById("error");
+
+      const employee = employees.find(e => e.username === username && e.password === password);
+
+      if(employee) {
+        // clear old session
+        sessionStorage.clear();
+        sessionStorage.setItem("loggedInUser", JSON.stringify(employee));
+        window.location.href = "dashboard.html";
+      } else {
+        errorBox.textContent = "❌ Invalid username or password!";
+      }
+    }
+  </script>
+</body>
+</html>

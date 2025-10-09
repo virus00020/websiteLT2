@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💰 LT2 Value Sheets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <a href="index.html"><button class="active">Home</button></a>
+      <a href="login.html"><button>Employee Login</button></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>💰 LT2 Value Sheets</h1>
+    <p class="subtitle">Welcome to the official LT2 Fan Group site!</p>
+
+    <h2>📰 Latest News</h2>
+    <div id="newsFeed"></div>
+  </main>
+
+  <script>
+    const news = JSON.parse(localStorage.getItem("news")) || [];
+    const feed = document.getElementById("newsFeed");
+
+    if (news.length === 0) {
+      feed.innerHTML = "<p>No news yet.</p>";
+    } else {
+      news.forEach(article => {
+        const div = document.createElement("div");
+        div.className = "news-item";
+        div.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.content}</p>
+          <small>By ${article.author} on ${article.date}</small>
+          <hr>
+        `;
+        feed.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
