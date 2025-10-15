@@ -38,8 +38,9 @@ app.get("/team", (req, res) => {
   });
 });
 
-// Server listen
+
 const PORT = 3000;
 app.listen(PORT, () =>
   console.log(`✅ Server running at http://localhost:${PORT}`)
 );
+
